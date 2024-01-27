@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
@@ -10,8 +11,9 @@ public class Destroy : MonoBehaviour
     private void Update()
     {
         if (player.GetComponent<Rigidbody2D>().velocity.y <= -20)
-            player.SetActive(false);
-
+        {
+            StartCoroutine(losePanel());
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,5 +33,11 @@ public class Destroy : MonoBehaviour
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(pos, 1f);
         return hits.Length;
+    }
+    IEnumerator losePanel()
+    {
+        yield return new WaitForSeconds(0.5f);
+        UIController.Instance.losePanel.SetActive(true);
+        UIController.Instance.losePanel.transform.localPosition = new Vector3(UIController.Instance.losePanel.transform.localPosition.x, player.transform.localPosition.y);
     }
 }

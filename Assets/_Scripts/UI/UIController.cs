@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class UIController : MonoBehaviour
+public class UIController : Singleton<UIController>
 {
     [SerializeField] private TMP_Text scoreTxt;
     [SerializeField] private GameObject player;
     [SerializeField] private int currentScore;
     [SerializeField] private List<Sprite> skinList;
+    public GameObject losePanel;
     // Start is called before the first frame update
     void Start()
     {

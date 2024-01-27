@@ -22,12 +22,12 @@ public class Platform : MonoBehaviour
         MovingUpBehavior b = new MovingUpBehavior();
         IdleBehavior c = new IdleBehavior();
         listState.Add(0, a);
-        listState.Add(1, b);
-        listState.Add(2, c);
+        listState.Add(1, c);
+        listState.Add(2, b);
     }
     private void Start()
     {
-        int randomBehavior = UnityEngine.Random.Range(0, listState.Count);
+        int randomBehavior = UnityEngine.Random.Range(0, listState.Count - 1);
         gameObject.AddComponent(listState[randomBehavior].GetType());
         movement = GetComponent<IMovable>();
         movement?.Move(transform, duration);
