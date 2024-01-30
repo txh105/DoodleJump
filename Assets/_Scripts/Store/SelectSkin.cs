@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Security.Cryptography;
 
 public class SelectSkin : MonoBehaviour
 {
     [SerializeField] private Button[] skinBtn;
+    [SerializeField] private string[] nameSkin;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +20,7 @@ public class SelectSkin : MonoBehaviour
     }
     void ClickHandler(int buttonIndex)
     {
-        PlayerPrefs.SetInt("skin_index",buttonIndex);
-        SceneManager.LoadScene(1);
+        PlayerPrefs.SetInt("skin_index", buttonIndex);
+        //SceneManager.LoadScene(1);
     }
-
 }

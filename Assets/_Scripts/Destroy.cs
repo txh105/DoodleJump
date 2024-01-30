@@ -12,7 +12,7 @@ public class Destroy : MonoBehaviour
     {
         if (player.GetComponent<Rigidbody2D>().velocity.y <= -20)
         {
-            StartCoroutine(losePanel());
+            StartCoroutine(LosePanel());
         }
     }
 
@@ -34,7 +34,7 @@ public class Destroy : MonoBehaviour
         Collider2D[] hits = Physics2D.OverlapCircleAll(pos, 1f);
         return hits.Length;
     }
-    IEnumerator losePanel()
+    IEnumerator LosePanel()
     {
         yield return new WaitForSeconds(0.5f);
         UIController.Instance.losePanel.SetActive(true);

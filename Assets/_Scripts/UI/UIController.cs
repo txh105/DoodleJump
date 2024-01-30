@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class UIController : Singleton<UIController>
 {
@@ -36,5 +38,13 @@ public class UIController : Singleton<UIController>
             currentScore = Mathf.RoundToInt(player.transform.position.y);
         }
         scoreTxt.text = currentScore.ToString();
+    }
+    public void PlayAgainBtn()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void MenuBtn()
+    {
+        SceneManager.LoadScene(0);
     }
 }
